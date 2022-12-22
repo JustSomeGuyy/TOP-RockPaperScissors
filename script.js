@@ -1,5 +1,5 @@
 
-
+// creates a random choice for the computer
 function getComputerChoice() {
     let choice = '';
     let random = Math.floor(Math.random() * 3) + 1;
@@ -15,37 +15,33 @@ function getComputerChoice() {
     }
 }
 
-const playerSelection = 'rock';
+let playerChoice = prompt('Rock, paper, or scissors?');
+const playerSelection = playerChoice;
 const computerSelection = getComputerChoice();
+// plays a round and determines the winner.
 
 function playRound(playerSelection, computerSelection) {
-    let outcome = '';
-    if(playerSelection === 'rock' && computerSelection === 'paper'){
-        let outcome = 'You lose! Paper beats Rock.';
-        return outcome;
-    } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        let outcome = 'You win! Rock beats scissors.';
-        return outcome;
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        let outcome = 'You win! Paper beats rock.';
-        return outcome;
-    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        let outcome = 'You lose! Scissors beats Paper.';
-        return outcome;
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        let outcome = 'You lose! Rock beats scissors.';
-        return outcome;
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper'){
-        let outcome = 'You win! Scissors beats paper.';
-        return outcome;
-    } else if (playerSelection === computerSelection) {
-        let outcome = 'It\'s a draw!';
-        return outcome;
+    let outcome = ``;
+    if(playerSelection === computerSelection){
+       outcome = `It's a draw!`
+    } else if ((playerSelection === 'rock' && computerSelection === 'scissors') || (playerSelection === 'paper' && computerSelection === 'rock') || (playerSelection === 'scissors' && computerSelection === 'paper')) {
+        outcome = `You win! ${playerSelection} beats ${computerSelection}.`;
+        playerScore++
     } else {
-        let outcome = 'Something went wrong.';
-        return outcome;
+        outcome = `You lose! ${computerSelection} beats ${playerSelection}.`
+        computerScore++;
     }
+    return outcome
 }
+let computerScore = 0;
+let playerScore = 0;
+let roundWinner = playRound(playerSelection,computerSelection);
 
+let roundScore = `Player: ${playerScore} - Computer: ${computerScore}`;
 
-console.log(playRound(playerSelection, computerSelection));
+// function game(roundWinner) {
+//     for (let rounds = 0; rounds === 5; rounds++){
+//         playerChoice;
+//     }
+// }
+console.log(game(roundWinner));
