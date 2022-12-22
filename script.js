@@ -15,8 +15,8 @@ function getComputerChoice() {
     }
 }
 
-let playerChoice = prompt('Rock, paper, or scissors?');
-const playerSelection = playerChoice;
+// let playerChoice = prompt('Rock, paper, or scissors?');
+const playerSelection = 'rock';
 const computerSelection = getComputerChoice();
 // plays a round and determines the winner.
 
@@ -33,15 +33,16 @@ function playRound(playerSelection, computerSelection) {
     }
     return outcome
 }
-let computerScore = 0;
-let playerScore = 0;
-let roundWinner = playRound(playerSelection,computerSelection);
 
-let roundScore = `Player: ${playerScore} - Computer: ${computerScore}`;
+function game(){
+    let computerScore = 0;
+    let playerScore = 0;
+    let roundScore = `Player: ${playerScore} - Computer: ${computerScore}`;
+    for (let round = 0; round > 6; round++){
+        playRound(round);
+        if(playerScore || computerScore > 3)break;
+    }
+    console.log(roundScore);
+}
 
-// function game(roundWinner) {
-//     for (let rounds = 0; rounds === 5; rounds++){
-//         playerChoice;
-//     }
-// }
-console.log(game(roundWinner));
+console.log(())
